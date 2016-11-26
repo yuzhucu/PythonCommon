@@ -20,6 +20,7 @@ def getCurrentTime():
 def getCurrentDate():
     return time.strftime('%Y-%m-%d',time.localtime(time.time()))
 
+#获取URL链接。支持重连
 def getURL(url,tries_num=5,sleep_time=0,time_out=0.1):
     headers = {'content-type': 'application/json',  'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
     sleep_time_p=sleep_time
