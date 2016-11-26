@@ -11,10 +11,16 @@ import requests
 from bs4 import BeautifulSoup
 import time
 
+#获取当前时间
 def getCurrentTime():
     return time.strftime('[%Y-%m-%d %H:%M:%S]',time.localtime(time.time()))
+    #return time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 
-def getURL(url,tries_num=5,sleep_time=1,time_out=10):
+#获取当前日期
+def getCurrentDate():
+    return time.strftime('%Y-%m-%d',time.localtime(time.time()))
+
+def getURL(url,tries_num=5,sleep_time=0,time_out=0.1):
     headers = {'content-type': 'application/json',  'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0'}
     sleep_time_p=sleep_time
     time_out_p=time_out
@@ -38,6 +44,6 @@ def getURL(url,tries_num=5,sleep_time=1,time_out=10):
     return  res
 
 if __name__=="__main__":
-   print getCurrentTime(),'Main Scrapy Starting'
+   print getCurrentTime()
    url='http://sh.lianjia.com/ershoufang'
-   print getURL(url).text
+   print getURL(url).url
